@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h1>Urban Dictionary Lookup</h1>
+
+Enter a term &nbsp;<input type="text" id="enter"  onchange="lookup()"> Choices limited to 'anime',ajax''cool','bro','fnord'
+
+<br><br>
+
+<div id="DV"></div>
+
+
+<script>
+
+	
+
+
+function lookup(){
+	
+	
+	
+	var xhttp =  new XMLHttpRequest();
+    
+	var q=document.getElementById("enter").value;
+
+	
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status==200){
+			
+			document.getElementById("DV").innerHTML=xhttp.responseText;
+	  
+		}
+		
+	};
+
+
+	xhttp.open("GET","urban.php?enter="+q,true);
+	xhttp.send();	
+	
+
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<!-- CSC 337: Project Best Reads -->
+<head>
+<link rel="stylesheet" type="text/css" href="bestreads.css" />
+<title>Best Reads</title>
+</head>
+<body>
+<body onload="showAll()">
+
+<div id="header">
+	<div>
+		best<span>reads</span>
+	</div>
+	<span id="back" onclick="showAll()">home</span>
+</div>
+
+<div id="allImages"></div>
+
+<script>
+
+
+var arr=[];
+
+
+
+
+function showAll() {
+  // Use AJAX to get an array of image urls.
+  //
+  // To convert JSON array to a Javascript array, use code like this:
+  //  $arr = JSON.parse(ajax.responseText);
+  
+  
+  
+
+	var ajax =  new XMLHttpRequest();
+    var i=0;
+    var AllImage=document.getElementById("allImages");
+    AllImage.innerHTML="";
+
+	ajax.onreadystatechange = function(){
+		if(ajax.readyState == 4 && ajax.status==200){
+			
+			  arr = JSON.parse(ajax.responseText);	
+			  console.log(arr);
+			  for(i=0;i<arr.length;i++){
+					
+				
+				  AllImage.innerHTML+='<img src="'+arr[i]+'/cover.jpg"'+'style="margin:20px;border-style:outset; border-width:5px;" onclick="ShowBook('+i+')">';
+				
+				  
+			  }
+	  
+		}
+		
+	};
+
+	
+
+    ajax.open("GET","bestreads.php?book=nothing",true);
+	ajax.send();	
+  
+		 
+	
+  
+  
+}
+
+
+function ShowBook(s){
+	
+
+	
+	
+	var ajax =  new XMLHttpRequest();
+    var AllImage=document.getElementById("allImages");
+    AllImage.innerHTML="";
+
+	ajax.onreadystatechange = function(){
+		if(ajax.readyState == 4 && ajax.status==200){
+			
+			 AllImage.innerHTML=ajax.responseText;	
+		
+	  
+		}
+		
+	};
+
+	
+
+    ajax.open("GET","bestreads.php?book="+arr[s],true);
+	ajax.send();	
+  
+	
+
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+.heading{
+	text-align:center;
+}
+.ButtonDiv{
+	
+	margin-left:55px;
+}
+
+.Button{
+	color:white;
+	background-color:gray;
+	border:none;
+	text-align:center;
+	padding: 15px 32px;
+	font-size:20px;
+	font-weight:bold;
+	border-radius:10px 10px 0px 0px;
+	
+}
+.QuoteAdd{
+	padding:10px;
+}
+.Spang{
+	font-weight:bold;
+	float:left;
+	margin-right:10px;
+	margin-left:5px;
+}
+
+.Authorbox{
+	margin:10px;
+}
+.formsubmit{
+	margin-left:58px;
+}
+.quote{
+	border:3px solid black;
+	border-radius:15px;
+	padding:10px;
+	margin:10px;
+}
+
+
+.Rating{
+	
+   width:25px;
+   height:25px;
+   font-size:10px;
+   font-weight:bold;
+   text-align:center;	
+}
+
+
+
+
+.RA{
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size:25px;
+	display:inline-block;
+}
+
+
+.RegisterDiv{
+    border: solid black 3px;
+	border-radius:15px;
+	width:300px;
+	height:140px;
+	padding:10px;
+	text-align:center;
+}
+.reginput1{
+	margin-left:10px;
+}
+
+.reginput2{
+	margin-left:12px;
+}
+.reginput3{
+	margin-left:170px;
+	margin-top:10px;
+}
+
+
+
+
+.LoginDiv{
+    border: solid black 3px;
+	border-radius:15px;
+	width:300px;
+	height:140px;
+	padding:10px;
+	text-align:center;
+}
+.loginput1{
+	margin-left:10px;
+}
+
+.loginput2{
+	margin-left:12px;
+}
+.loginput3{
+	margin-left:170px;
+	margin-top:10px;
+}
+
+.LogBox{
+	padding-left:20px;
+}
+.B1{
+	margin-left:35px;
+	margin-top:5px;
+}
+
+.B2{
+	margin-left:10px;
+	margin-top:5px;
+}

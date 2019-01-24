@@ -1,0 +1,101 @@
+@charset "utf-8";
+// You may, and should, use the same styles from Project 2: Rancid Tomatoes
+body {
+	background-image: url("images/moviebg.png")
+}
+
+div.overall {
+	position: relative;
+	left: 240px;
+	border-radius: 25px;
+	box-shadow: 10px 10px 10px #888888;
+	width: 800px;
+	overflow: hidden;
+}
+
+.banner {
+	background-image: url("images/rancidbannerbg.png");
+	background-repeat: repeat-x;
+	height: 50px;
+}
+
+h1 {
+	font-size: 24pt;
+	text-align: center;
+	font-weight: bold;
+	font-family: Georgia;
+	text-shadow: 2px 2px gray;
+}
+
+.rotten {
+	background-image: url("images/rottenlargebg.png");
+	background-repeat: repeat-x;
+	float: left;
+	width: 550px;
+	height: 83px;
+}
+
+span.s1 {
+	position: relative;
+	bottom: 25px;
+	color: red;
+	font-weight: bold;
+	font-size: 48pt;
+	font-family: sans-serif;
+}
+
+div.div2 {
+	position: absolute;
+	top: 83px;
+	bottom: 0;
+	float: left;
+	background-color: lightgray;
+	width: 550px;
+}
+
+div.div3 {
+	font-family: Arial;
+	font-size: 10pt;
+	background-color: darkseagreen;
+	float: right;
+	width: 250px;
+}
+
+div.p1 {
+	margin-top: -8px;
+	margin-right: 10px;
+	margin-left: 10px;
+	float: left;
+	width: 245px;
+}
+
+div.p2 {
+	margin-top: -8px;
+	margin-right: 10px;
+	margin-left: 10px;
+	float: left;
+	width: 245px;
+}
+
+.quote {
+	font-size: 10pt;
+	background-color: white;
+	border: 2px solid darkgray;
+	border-radius: 20px;
+	font-family: Georgia;
+	padding: 8px;
+}
+
+.public {
+	font-style: italic
+}
+
+dt, dd {
+	padding-right: 12px;
+	padding-left: 12px;
+}
+
+dt {
+	padding-top: 5px;
+	font-weight: bold;
+}

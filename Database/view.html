@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- 
+Author: Hanlin Chen
+File Name: view.html
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>University Students</title>
+
+<style>
+table, td, th {
+     border: 1px solid black;
+     padding: 5px;
+} 
+
+table {
+     border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+     background-color: #f2f2f2
+}
+
+</style>
+</head>
+<body>
+
+      <input type="button" value="Click me" onclick="getData()">  <hr><br>
+      <div id="toChange"></div> 
+
+      <script>
+        var array = [];
+        function getData() {
+            var anObj = new XMLHttpRequest();
+            anObj.open("GET", "controller.php", true);
+            anObj.send(); 
+
+            anObj.onreadystatechange = function () {
+               if (anObj.readyState == 4 && anObj.status == 200) {
+                    array = JSON.parse(anObj.responseText);
+                    str = "<table>";
+                    str += "<th>ID</th>"
+                    str += "<th>First Name</th>"
+                    str += "<th>Last Name</th>" 
+                    str += "<th>Major</th>"
+                    for (var i = 0; i < array.length; i++) {
+                        str += "<tr><td>"
+                        str += array[i]['ID'];
+                        str += "</td>"
+                        str += "<td>" + array[i]['firstName'] + "</td>";
+                        str += "<td>" + array[i]['lastName'] + "</td>";
+                        str += "<td>" + array[i]['major'] + "</td>";
+                        str += "</td>"
+                        str += "</tr></td>"
+                    }
+                    str += "<table>";
+                    var toChange = document.getElementById("toChange");
+                    toChange.innerHTML = str;
+                }
+            };
+        }
+    </script>
+
+</body>
+</html>

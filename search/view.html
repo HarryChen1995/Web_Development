@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<!-- 
+Author: Hanlin Chen
+File Name: view.html
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MVC</title>
+</head>
+<body>
+       <h2>Search for either all roles or all actors in the database imdb_small</h2><hr>
+      <input type="text" id="Enter"><br><br>
+      <input type="button"  value="Actors" onclick="getActors()">  <input type="button"  value="Roles" onclick="getRoles()"><br><br><br><br><hr>
+      <div id="toChange"></div> 
+
+      <script>
+      var array = [];
+      var array2 = [];
+        
+        function getActors() {
+            var anObj = new XMLHttpRequest();
+            var str="";
+            anObj.open("GET", "controller.php?select=Actors", true);
+            anObj.send(); 
+
+            anObj.onreadystatechange = function () {
+               if (anObj.readyState == 4 && anObj.status == 200) {
+                    array = JSON.parse(anObj.responseText);
+                    
+                    for (var i = 0; i < array.length; i++) {
+                    	var substr=document.getElementById("Enter").value;
+
+                      if((substr.length!=0)&&(array[i]['first_name'].toLowerCase().includes(substr.toLowerCase())||array[i]['last_name'].toLowerCase().includes(substr.toLowerCase()))){
+                        str += "<b>" + array[i]['first_name'] + "</b> &nbsp"+"<b>" + array[i]['last_name'] + "</b><br>";
+                      }
+                     }
+                    var toChange = document.getElementById("toChange");
+                    toChange.innerHTML="";
+                    toChange.innerHTML = str;
+                }
+            };
+        }
+        
+        
+        
+        
+        
+        function getRoles() {
+            var anObj = new XMLHttpRequest();
+            var str="";
+            anObj.open("GET", "controller.php?select=Roles", true);
+            anObj.send(); 
+
+            anObj.onreadystatechange = function () {
+               if (anObj.readyState == 4 && anObj.status == 200) {
+                    array2 = JSON.parse(anObj.responseText);
+                    
+                    for (var i = 0; i < array2.length; i++) {
+                     	var substr=document.getElementById("Enter").value;
+                        
+                        if((substr.length!=0)&&(array2[i]['role'].toLowerCase().includes(substr.toLowerCase()))){
+                          str += "<b>" + array2[i]['role']  + "</b><br>";
+                        }
+                     }
+          
+                    var toChange = document.getElementById("toChange");
+                    toChange.innerHTML="";
+                    toChange.innerHTML = str;
+                }
+            };
+        }
+        
+        
+    </script>
+
+</body>
+</html>
