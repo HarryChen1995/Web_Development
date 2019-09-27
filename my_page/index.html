@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+
+<body>
+<div>
+<div class="profile">
+</div>
+<div id = "typedtext"> 
+    <p id = "myintro"></p>
+</div>
+
+<div class = "personal_life"><br><br><br><a class ="link" href="personal_life.html">$Personal Life</a></div>
+<div class = "diet"><br><br><br><a class = "link" href="diet.html">$Diet</a></div>
+<div class = "relationship"><br><br><br><a class = "link" href="relationship.html">$Relationship</a></div>
+<div class = "linkedin"><br><br><br><a class = "link" href="https://www.linkedin.com/in/hanlin-chen-41663b139/">$Linkedin</a></div>
+<div class = "github"><br><br><br><a class = "link" href="https://github.com/HarryChen1995">$Github</a></div>
+<div class = "footer">
+        <footer>
+                Posted by: Hanlin Chen <br>
+                Contact information: <a id ="link" href="mailto:harryChen1995@yahoo.com">harrychen1995@yahoo.com</a>
+              </footer>
+</div>
+</div>
+</body>
+
+<script>
+var aText = new Array(
+"$I am Hanlin Chen, a computer engineering graduate student. I came to US at the age of 16 for high school and have pushed myself to succeed beyond expectation to come as far as I have, to finally graduating with my Master degree this year. Life has thrown me a lot of hurdles through my journey. I am passionate about AI (artificial intelligence), physics, math and software development since high school. I enjoy challenging myself and want to help change the world with my ideas/accomplishments."
+);
+var iSpeed = 80; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+ 
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("myintro");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+
+typewriter();
+</script>
+</html>
