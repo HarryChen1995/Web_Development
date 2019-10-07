@@ -15,6 +15,26 @@
 
 
    <div id = "skill">$My_Skill_Search_Tree   #Click <span class="dot"></span> to Expand Subtree</div>
+   <div id ="skill_panel"> <h2 id = "python">Python<h2><hr><br>
+                            <p>&nbsp;&nbsp; Python is considered as high level, interpreted general purposed programming language specially for data science, and machine learning,
+                            computer vision because of its simplicity, community support and efficiency. It came with amazing modules and frameworks for my projects. I original came from a C programming background. But soon after I 
+                            get hands on machine learning projects, I found out that python is so much fun to work with. It is so much easier to pick up compared to C/C++. 
+                            Python has became my primary programming language, not just for my ML project, also my coding interviews. But I am not here to cherry pick python for all projects I worked on.
+                            As programmer, I realize that it is hard to transition to other programming language from python. Specially when it came to data structures, algorithm , and memory managements. I do recommend C language as good start.
+                            </p>
+                            <h2 id = "C++">C/C++<h2><hr><br>
+                              <p>&nbsp;&nbsp; C/C++ supports object oriented features and dynamic memory allocations. It is portable and can deployed on all machines. I primarily used C/C++ for all my micro controller projects (for example-MicroChip PIC 32, TI MSP430).
+                                It is actually first language that I learned in college. I learned all basic data structures
+                                and algorithm in C/C++. I still remember fist coding projects for my C programming class was to implement battle ship game using two dimensional array and double link list which stored all ships for each player.
+                                sunk ship had to remove from double link list. I was entrapped in confusion of pointers. But once I figured out how reference and variable address works, I quickly wrapped my head around.
+                                the first idea came to my head was that creating hash table to quickly reference each ship and remove them with time complicity of O(1) instead of linear searching through entire list (O(n)). 
+                                It is weird that python does not support pointer,  everything works as reference to to the certain object. Again this is why I recommend C language as good start to learn and understand all 
+                                underlying concepts.
+                              </p>
+
+                        
+
+   </div>
 
 
 
@@ -64,37 +84,54 @@ var treeData = [
       {
         "name": "Programming Language",
         "parent": "My Skill",
+        "link":null,
+        "line":null,
         "children": [
           {
             "name": "Python",
-            "parent": "Programming Language"
+            "parent": "Programming Language",
+            "link":"#python",
+            "line":"underline"
           },
           {
-            "name": "C++",
-            "parent": "Programming Language"
+            "name": "C/C++",
+            "parent": "Programming Language",
+            "link":"#C++",
+            "line":"underline"
           },
           {
             "name": "JavaScript",
-            "parent": "Programming Language"
+            "parent": "Programming Language",
+            "link":"#javascript",
+            "line":"underline"
           }
         ]
       },
       {
         "name": "Web Development",
-        "parent": "My Skill"
+        "parent": "My Skill",
+        "link":"#web_development",
+        "line":"underline"
+
       },
       {
         "name": "Machine learning",
         "parent": "My Skill",
+        "link":null,
+        "line":null,
         "children": [
         {
             "name": "Neural Networks (CNN, DNN, RNN, GAN)",
-            "parent": "Machine Learning"
+            "parent": "Machine Learning",
+            "link":"#neural_network",
+            "line":"underline"
           },
 
           {
             "name": "Object Detection",
-            "parent": "Machine Learning"
+            "parent": "Machine Learning",
+            "link":"#object_detection",
+            "line":"underline"
           }
 
         ]
@@ -102,19 +139,28 @@ var treeData = [
       {
         "name": "Computer Architecture Design",
         "parent": "My Skill",
+        "link":null,
+        "line":null,
         "children": [
         {
             "name": "HDL (VHDL, Verilog)",
-            "parent": "Computer Architecture Design"
+            "parent": "Computer Architecture Design",
+            "link":"#hdl",
+            "line":"underline"
+
           },
 
           {
             "name": "MIPS 32 assembly",
-            "parent": "Computer Architecture Design"
+            "parent": "Computer Architecture Design",
+            "link":"#mips",
+            "line":"underline"
           },
           {
             "name": "Pipelining",
-            "parent": "Computer Architecture Design"
+            "parent": "Computer Architecture Design",
+            "link":"#pipeline",
+            "line":"underline"
           }
 
         ]
@@ -195,12 +241,13 @@ function update(source) {
 	  .style("fill", function(d) { return d._children ? "rgb(56, 231, 65)" : "rgb(34, 35, 36)"; });
 
   nodeEnter
-     //.append("a")
-     //.attr("xlink:href", function (d) { return "http://www.example.com/flare/" + d.id})
+     .append("a")
+     .attr("xlink:href", function (d) { return d.link})
      .append("text")
 	  .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
 	  .attr("dy", ".35em")
 	  .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+    .attr("text-decoration", function(d) { return d.line })
 	  .text(function(d) { return d.name; })
 	  .style("fill-opacity", 1e-6);
 

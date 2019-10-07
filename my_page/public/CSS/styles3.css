@@ -53,6 +53,30 @@ body{
   border-radius: 10px;
 }
 
+hr{
+  display: block; height: 1px;
+  border: 0; border-top: 3px solid rgb(85, 238, 47);
+  margin: 1em 0; padding: 0;
+}
+
+#skill_panel{
+  text-align: justify;
+  text-align-last: left;
+  font-family: 'Source Code Pro', monospace;
+  font-weight:bold;
+  font-size:13px;
+  color: rgb(85, 238, 47);
+  padding:20px;
+  position:absolute;
+  left: 20px;
+  top:900px;
+  width: 1000px;
+  height:1000px;
+  background-color: rgb(34, 35, 36);
+  opacity: 0.7;
+  border-radius: 10px;
+}
+
 .dot {
   height: 20px;
   width: 20px;
