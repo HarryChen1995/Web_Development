@@ -16,18 +16,14 @@ body{
 .profile{
     position: absolute;
     left: 100px;
-    top: 20px;
+    top: 40px;
     background-image: url('../image/my_pic.jpg');
 	background-position:center;
 	background-repeat:no-repeat;
 	background-size:cover;
-	height:100px;
-    width:100px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
+	height:300px;
+    width:200px;
+    border-radius: 5px;
 }
 
 #typedtext{
@@ -36,7 +32,7 @@ body{
     color: rgb(73, 207, 73);
     padding:10px;
     position:absolute;
-    left: 300px;
+    left: 330px;
     top:20px;
     width: 600px;
     height: 350px;
